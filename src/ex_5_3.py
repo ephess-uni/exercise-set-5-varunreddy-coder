@@ -9,11 +9,12 @@ import numpy as np
 from argparse import ArgumentParser
 
 if __name__ == "__main__":
-    # Create your argument parser object here.
-    # Collect the filename arguments from the command line
-    # Rewrite your 5_3 logic here so that it utilizes the arguments passed from the command line.
-
-    # Tests will run your command using a system call.
-    # To test your program with arguments, run it from the command line
-    # (see README.md for more details)
-    pass
+    desc = "This program applies a standard scale transform to the data in infile and writes it to outfile."
+    parser = ArgumentParser(description=desc)
+    parser.add_argument('infile',hellp='provide input file path',nargs='?')
+    parser.add_argument('outfile',hellp='provide output file path',nargs='?')
+    args = parser.parse_args()
+    raw_data = np.loadtxt(args.infile)
+    processed = (raw_data - raw_data.mean(axis=0)) / raw_data.std(axis=0)
+    np.savetxt(args.outfile, processed, fmt='%.2e')
+    
