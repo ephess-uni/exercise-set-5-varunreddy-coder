@@ -9,8 +9,7 @@ import numpy as np
 from argparse import ArgumentParser
 
 if __name__ == "__main__":
-    desc = "This program applies a standard scale transform to the data in infile and writes it to outfile."
-    parser = ArgumentParser(description=desc)
+    parser = ArgumentParser(description="This program applies a standard scale transform to the data in infile and writes it to outfile.")
     parser.add_argument('infile',hellp='provide input file path',nargs='?')
     parser.add_argument('outfile',hellp='provide output file path',nargs='?')
     args = parser.parse_args()
